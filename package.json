@@ -1,0 +1,38 @@
+{
+    "name": "OpencartModuleGenerator",
+    "version": "1.0.0",
+    "keywords": [
+        "util",
+        "functional",
+        "server",
+        "client",
+        "browser"
+    ],
+    "author": "Asset Saparov",
+    "contributors": [],
+    "dependencies": {
+        "gulp-template": "latest",
+        "gulp": "latest",
+        "gulp-rename": "latest",
+        "gulp-replace-name": "latest",
+        "gulp-param": "latest",
+        "gulp-help": "latest",
+        "gulp-if": "latest",
+        "gulp-filenames": "latest",
+        "event-stream": "latest",
+        "gulp-util": "latest",
+        "gulp-ext": "latest",
+        "gulp-sass": "latest",
+        "gulp-clean-css": "latest",
+        "gulp-autoprefixer": "latest",
+        "node-bourbon": "latest",
+        "vinyl-ftp": "latest",
+        "gulp-uglify": "latest",
+        "gulp-sourcemaps": "latest",
+        "browser-sync": "latest"
+    },
+    "main": "gulpfile.js",
+    "scripts": {
+        "start": "gulp"
+    }
+}
