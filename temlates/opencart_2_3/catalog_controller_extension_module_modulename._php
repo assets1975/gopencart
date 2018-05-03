@@ -9,7 +9,7 @@ class ControllerExtensionModule<%= Name %> extends Controller {
             $this->load->language('extension/module/<%= name %>');
             $data['heading_title'] = $this->language->get('heading_title');
                                                 
-            $this->document->addStyle('catalog/view/javascript/<%= name %>/css/<%= name %>.css');
+            $this->document->addStyle('catalog/view/javascript/<%= name %>/css/<%= name %>.min.css');
             $this->document->addScript('catalog/view/javascript/<%= name %>/js/<%= name %>.min.js');  
             
             //$data['currencysymbol_left']=$this->currency->getSymbolLeft($this->session->data['currency']);

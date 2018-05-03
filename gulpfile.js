@@ -49,7 +49,7 @@ var condition = function (file) {
 
 
 gulp.task('gmodule', 'generate opencart 2.3.x.x module', function (modulename) {
-    return gulp.src('src/opencart_2_3/**/*.*')
+    return gulp.src('templates/opencart_2_3/**/*.*')
             .pipe(ext.replace('.php', '._php'))                  // должен ити  первым в потоке
             .pipe(replaceName(/modulename/g, modulename))
             .pipe(replaceName(/_/g, '\\'))
