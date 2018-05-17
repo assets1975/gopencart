@@ -70,6 +70,9 @@ gulp.task('gmodule', 'generate opencart 2.3.x.x module', function (modulename) {
 }
 );
 
+// создает новую страницу в common
+// нужно создать новую схему и указать путь common/newpage где newpage название новой страницы
+
 gulp.task('gnewpage', 'generate opencart 2.3.x.x new page "common/newpage"', function (newpagename) {
     console.log(newpagename);
     return gulp.src('templates/opencart_2_3/common/**/*.*')
@@ -84,7 +87,7 @@ gulp.task('gnewpage', 'generate opencart 2.3.x.x new page "common/newpage"', fun
             .pipe(gulp.dest('dist/'));
 }, {
     options: {
-        'newpagename': 'opencart new page name in common url'
+        'newpagename': 'new page name '
     }
 }
 );
