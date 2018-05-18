@@ -70,6 +70,30 @@ gulp.task('gmodule', 'generate opencart 2.3.x.x module', function (modulename) {
 }
 );
 
+
+// run gulp gnewepayxtension --modulename test_module_name
+gulp.task('gnewepayxtension', 'generate opencart 2.3.x.x payment module', function (modulename) {
+    return gulp.src('templates/opencart_2_3/extension/payment/**/*.*')
+            .pipe(ext.replace('.php', '._php'))                  // должен ити  первым в потоке
+            .pipe(replaceName(/modulename/g, modulename))
+            .pipe(replaceName(/_/g, '\\'))
+            //.pipe(replaceName(/_php/g, 'php'))
+            //.pipe(logFile(es))
+            //.pipe(gulpif(condition,template({name:modulename})))
+            //.pipe(template({ModuleName:modulename.capitalize()}))
+            .pipe(template({
+                name: modulename,
+                Name: modulename.capitalize()
+            }
+            ))
+            .pipe(gulp.dest('dist/'));
+}, {
+    options: {
+        'modulename': 'opencart module name'
+    }
+}
+);
+
 // создает новую страницу в common
 // нужно создать новую схему и указать путь common/newpage где newpage название новой страницы
 
