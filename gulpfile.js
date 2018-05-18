@@ -47,7 +47,7 @@ var condition = function (file) {
     return true;
 };
 
-
+// run gulp gmodule --modulename test_module_name
 gulp.task('gmodule', 'generate opencart 2.3.x.x module', function (modulename) {
     return gulp.src('templates/opencart_2_3/extension/module/**/*.*')
             .pipe(ext.replace('.php', '._php'))                  // должен ити  первым в потоке
