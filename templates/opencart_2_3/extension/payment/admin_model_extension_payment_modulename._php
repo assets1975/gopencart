@@ -5,7 +5,7 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 
-class ModelExtensionPayment<%= name %>extends Model {
+class ModelExtensionPayment<%= Name %> extends Model {
 	public function getOrder($order_id) {
 		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "<%= name %>_order` WHERE `order_id` = '" . (int)$order_id . "' LIMIT 1");
 

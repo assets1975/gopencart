@@ -11,6 +11,7 @@ $_['heading_title']		 = '<%= Name %>';
 $_['text_extension']	 = 'Extensions';
 $_['text_success']		 = 'Success: You have modified <%= name %> account details!';
 $_['text_edit']          = 'Edit <%= name %>';
+$_['text_smartpost']	 = '<a href="https://<%= name %>/" target="_blank"><img src="view/image/payment/<%= name %>.png" alt="<%= name %>" title="<%= name %>" style="border: 1px solid #EEEEEE;" /></a>';
 
 // Entry
 $_['entry_merchant']	 = 'Merchant ID';

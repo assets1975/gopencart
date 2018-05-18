@@ -86,10 +86,10 @@ class ControllerExtensionPayment<%= Name%> extends Controller {
 		if (isset($this->request->post['<%= name %>_merchant'])) {
 			$data['<%= name %>_merchant'] = $this->request->post['<%= name %>_merchant'];
 		} else {
-			$data['<%= name %>_merchant'] = $this->config->get('payza_merchant');
+			$data['<%= name %>_merchant'] = $this->config->get('<%= name %>_merchant');
 		}
 
-		if (isset($this->request->post['payza_security'])) {
+		if (isset($this->request->post['<%= name %>_security'])) {
 			$data['<%= name %>_security'] = $this->request->post['<%= name %>_security'];
 		} else {
 			$data['<%= name %>_security'] = $this->config->get('<%= name %>_security');
@@ -103,7 +103,7 @@ class ControllerExtensionPayment<%= Name%> extends Controller {
 			$data['<%= name %>_total'] = $this->config->get('<%= name %>_total');
 		}
 
-		if (isset($this->request->post['payza_order_status_id'])) {
+		if (isset($this->request->post['<%= name %>_order_status_id'])) {
 			$data['<%= name %>_order_status_id'] = $this->request->post['<%= name %>_order_status_id'];
 		} else {
 			$data['<%= name %>_order_status_id'] = $this->config->get('<%= name %>_order_status_id');
