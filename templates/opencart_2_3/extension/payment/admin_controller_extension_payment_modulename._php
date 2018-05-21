@@ -37,9 +37,11 @@ class ControllerExtensionPayment<%= Name%> extends Controller {
 		$data['entry_geo_zone'] = $this->language->get('entry_geo_zone');
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
-
+		$data['entry_debug'] = $this->language->get('entry_debug');
+		
 		$data['help_callback'] = $this->language->get('help_callback');
 		$data['help_total'] = $this->language->get('help_total');
+		$data['help_debug'] = $this->language->get('help_debug');
 
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
@@ -118,6 +120,12 @@ class ControllerExtensionPayment<%= Name%> extends Controller {
 		} else {
 			$data['<%= name %>_geo_zone_id'] = $this->config->get('<%= name %>_geo_zone_id');
 		}
+
+		if (isset($this->request->post['<%= name %>_debug'])) {
+			$data['<%= name %>_debug'] = $this->request->post['<%= name %>_debug'];
+		} else {
+			$data['<%= name %>_debug'] = $this->config->get('<%= name %>_debug');
+		}		
 
 		$this->load->model('localisation/geo_zone');
 

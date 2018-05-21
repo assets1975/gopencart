@@ -34,4 +34,11 @@ class ModelExtensionPayment<%= Name %> extends Model {
 	public function uninstall() {
 		$this->db->query("DROP TABLE IF EXISTS `" . DB_PREFIX . "<%= name %>_order`;");
 	}
+
+	public function logger($message) {
+		if ($this->config->get(<%= name %>_debug') == 1) {
+			$log = new Log('<%= name %>.log');
+			$log->write($message);
+		}
+	}	
 }

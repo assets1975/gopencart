@@ -33,4 +33,12 @@ class ModelExtensionPayment<%= Name %> extends Model {
 
 		return $method_data;
 	}
+
+	public function logger($data) {
+		if ($this->config->get('<%= name %>_debug')) {
+			$log = new Log('<%= name %>_pay.log');
+			$backtrace = debug_backtrace();
+			$log->write($backtrace[6]['class'] . '::' . $backtrace[6]['function'] . ' Data:  ' . print_r($data, 1));
+		}
+	}	
 }

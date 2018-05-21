@@ -85,6 +85,21 @@
             </div>
           </div>
           <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-debug"><?php echo $entry_debug; ?></label>
+            <div class="col-sm-10">
+            <select name="<%= name %>_debug" id="input-debug" class="form-control">
+              <?php if ($<%= name %>_debug) { ?>
+                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                <option value="0"><?php echo $text_disabled; ?></option>
+              <?php } else { ?>
+                <option value="1"><?php echo $text_enabled; ?></option>
+                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+              <?php } ?>
+            </select>
+            <span class="help-block"><?php echo $help_debug; ?></span>
+            </div>
+          </div>            
+          <div class="form-group">
             <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
             <div class="col-sm-10">
               <select name="<%= name %>_status" id="input-status" class="form-control">

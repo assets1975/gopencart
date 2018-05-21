@@ -6,3 +6,4 @@
 
 // Text
 $_['text_title'] = 'Credit Card / Debit Card (<%= Name %>)';
+$_['error_process_order'] = 'There are an error processing your order. Please contact the shop administrator for help.';

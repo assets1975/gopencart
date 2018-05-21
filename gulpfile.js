@@ -164,6 +164,24 @@ gulp.task('deploy','deploy to server', function() {
 	return gulp.src(globs, {buffer: false})
 	.pipe(conn.dest('/opencart_pro/'));
 });
+// gulp deploy-hosting
+gulp.task('deploy-hosting','deploy to hosting', function() {
+	var conn = ftp.create({
+		host:      'http://opencartpro.asset-saparov.kz/',
+		user:      'assets',
+		password:  '9hbE$6m4',
+		parallel:  10,
+		log: gutil.log
+	});
+	var globs = [
+	'dist/**/*.min.js',
+	'dist/**/*.php',
+	'dist/**/*.min.css',
+	'dist/**/*.tpl'
+	];
+	return gulp.src(globs, {buffer: false})
+	.pipe(conn.dest('/opencartpro.asset-saparov.kz/'));
+});
 
 // Наблюдение за файлами
 gulp.task('watch', function() {
