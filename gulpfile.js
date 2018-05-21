@@ -167,7 +167,7 @@ gulp.task('deploy','deploy to server', function() {
 // gulp deploy-hosting
 gulp.task('deploy-hosting','deploy to hosting', function() {
 	var conn = ftp.create({
-		host:      'http://opencartpro.asset-saparov.kz/',
+		host:      'http://opencartpro.asset-saparov.kz',
 		user:      'assets',
 		password:  '9hbE$6m4',
 		parallel:  10,
