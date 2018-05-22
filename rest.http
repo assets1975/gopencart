@@ -1,0 +1,17 @@
+POST  http://1001kafel.kz/index.php?route=extension/payment/smartpost/callback
+#POST http://opencartpro.asset-saparov.kz/index.php?route=extension/payment/smartpost/callback
+#POST http://localhost/opencart_pro/index.php?route=extension/payment/smartpost/callback
+content-type: application/json
+
+{
+    "MERCHANT_ID":"11052",
+    "PAYMENT_AMOUNT":"205",
+    "PAYMENT_TYPE":"", 
+    "PAYMENT_ORDER_ID":"8",
+    "PAYMENT_TRANSACTION_ID":"1141383",
+    "PAYMENT_INFO":"Your Store - #8",
+    "PAYMENT_RETURN_URL":"http://opencartpro.asset-saparov.kz/index.php?route=checkout/success",
+    "PAYMENT_RETURN_FAIL_URL":"http://opencartpro.asset-saparov.kz/index.php?route=checkout/checkout",
+    "PAYMENT_STATUS":"paid",
+    "PAYMENT_HASH":"griaJTKZjkbHWEAF4xH2Kw=="
+}
