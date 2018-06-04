@@ -21,6 +21,7 @@ const ftp            = require('vinyl-ftp');
 const gutil          = require('gulp-util' );
 const uglify         = require('gulp-uglify');
 const sourcemaps     = require('gulp-sourcemaps');
+const plumber = require('gulp-plumber');
 
 
 es = require('event-stream');
@@ -50,6 +51,7 @@ var condition = function (file) {
 // run gulp gmodule --modulename test_module_name
 gulp.task('gmodule', 'generate opencart 2.3.x.x module', function (modulename) {
     return gulp.src('templates/opencart_2_3/extension/module/**/*.*')
+            .pipe(plumber())
             .pipe(ext.replace('.php', '._php'))                  // должен ити  первым в потоке
             .pipe(replaceName(/modulename/g, modulename))
             .pipe(replaceName(/_/g, '\\'))
@@ -74,6 +76,7 @@ gulp.task('gmodule', 'generate opencart 2.3.x.x module', function (modulename) {
 // run gulp gnewepayxtension --modulename test_module_name
 gulp.task('gnewepayxtension', 'generate opencart 2.3.x.x payment module', function (modulename) {
     return gulp.src('templates/opencart_2_3/extension/payment/**/*.*')
+            .pipe(plumber())
             .pipe(ext.replace('.php', '._php'))                  // должен ити  первым в потоке
             .pipe(replaceName(/modulename/g, modulename))
             .pipe(replaceName(/_/g, '\\'))
@@ -100,6 +103,7 @@ gulp.task('gnewepayxtension', 'generate opencart 2.3.x.x payment module', functi
 gulp.task('gnewpage', 'generate opencart 2.3.x.x new page "common/newpage"', function (newpagename) {
     console.log(newpagename);
     return gulp.src('templates/opencart_2_3/common/**/*.*')
+            .pipe(plumber())    
             .pipe(ext.replace('.php', '._php'))                  // должен ити  первым в потоке
             .pipe(replaceName(/newpagename/g, newpagename))
             .pipe(replaceName(/_/g, '\\'))
@@ -126,11 +130,12 @@ gulp.task('browser-sync', function() {
 
 // Компиляция *.scss
 gulp.task('scss', function() {
-	return gulp.src('dist/**/*.scss')
+    return gulp.src('dist/**/*.scss')
+        .pipe(plumber())    
 		.pipe(sourcemaps.init())
                 .pipe(sass()) //Скомпилируем                
 		.pipe(autoprefixer(['last 15 versions']))
-		.pipe(cleanCSS())
+		.pipe(cleanCSS().on('error',gutil.log))
                 .pipe(sourcemaps.write())
                 .pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest('dist'))
@@ -139,6 +144,7 @@ gulp.task('scss', function() {
 
 gulp.task('js','js compile', function () {
     gulp.src('dist/**/*.js') //Найдем наш main файл
+        .pipe(plumber())    
         .pipe(sourcemaps.init()) //Инициализируем sourcemap
         .pipe(uglify()) //Сожмем наш js
         .pipe(sourcemaps.write()) //Пропишем карты
