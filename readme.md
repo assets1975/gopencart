@@ -1,8 +1,9 @@
 # Opencart generator 
 
 ## Script
-
-# generate opencart 2.3.x.x extension module
+```
+```
+## generate opencart 2.3.x.x extension module
 ```
 $ gulp gmodule --modulename opencart_module_name
 ```
