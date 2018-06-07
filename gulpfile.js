@@ -21,7 +21,7 @@ const ftp            = require('vinyl-ftp');
 const gutil          = require('gulp-util' );
 const uglify         = require('gulp-uglify');
 const sourcemaps     = require('gulp-sourcemaps');
-const plumber = require('gulp-plumber');
+const plumber        = require('gulp-plumber');
 
 
 es = require('event-stream');
@@ -121,6 +121,7 @@ gulp.task('gnewpage', 'generate opencart 2.3.x.x new page "common/newpage"', fun
 );
 
 // Обновление страниц сайта на локальном сервере
+// Нужно указать proxy
 gulp.task('browser-sync', function() {
 	browserSync({
 		proxy: "http://localhost/opencart_pro/",
@@ -133,11 +134,11 @@ gulp.task('scss', function() {
     return gulp.src('dist/**/*.scss')
         .pipe(plumber())    
 		.pipe(sourcemaps.init())
-                .pipe(sass()) //Скомпилируем                
+        .pipe(sass()) //Скомпилируем                
 		.pipe(autoprefixer(['last 15 versions']))
 		.pipe(cleanCSS().on('error',gutil.log))
-                .pipe(sourcemaps.write())
-                .pipe(rename({ suffix: '.min' }))
+        .pipe(sourcemaps.write())
+        .pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest('dist'))
 		.pipe(browserSync.reload({stream: true}));
 });
