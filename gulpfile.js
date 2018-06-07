@@ -74,7 +74,7 @@ gulp.task('gmodule', 'generate opencart 2.3.x.x module', function(modulename) {
 
 
 // run gulp gnewepayxtension --modulename test_module_name
-gulp.task('gnewepayxtension',
+gulp.task('gnewpayextension',
           'generate opencart 2.3.x.x payment module', function(modulename) {
     return gulp.src('templates/opencart_2_3/extension/payment/**/*.*')
             .pipe(plumber())
