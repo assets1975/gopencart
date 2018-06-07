@@ -176,9 +176,9 @@ return gulp.src(globs, {buffer: false}).pipe(conn.dest('/opencart_pro/'));
 // gulp deploy-hosting
 gulp.task('deploy-hosting', 'deploy to hosting', function() {
 let conn = ftp.create({
-    host: 'http://opencartpro.asset-saparov.kz',
-    user: 'assets',
-    password: '9hbE$6m4',
+    host: 'http://opencartpro.asset-saparov.kz', // hosting ftp
+    user: '', // ftp user name
+    password: '', // ftppassword
     parallel: 10,
     log: gutil.log
 });
