@@ -14,7 +14,7 @@
         "bootstrap": "latest",
         "font-awesome": "latest",
         "jquery": "latest",
-        "popper.js": "latest"        
+        "popper.js": "latest"
     },
     "main": "gulpfile.js",
     "scripts": {
@@ -34,7 +34,7 @@
         "gulp-imagemin": "latest",
         "gulp-filenames": "latest",
         "gulp-minify-css": "latest",
-        "gulp-plumber": "^1.2.0",        
+        "gulp-plumber": "^1.2.0",
         "gulp-scss-lint": "^0.6.1",
         "imagemin-pngquant": "latest",
         "rimraf": "latest",
@@ -49,6 +49,6 @@
         "gulp-uglify": "latest",
         "gulp-util": "latest",
         "node-bourbon": "latest",
-        "vinyl-ftp": "latest"            
+        "vinyl-ftp": "latest"
     }
 }
