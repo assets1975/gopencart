@@ -2,15 +2,15 @@
 
 ## Script
 
-### generate opencart 2.3.x.x extension module
+# generate opencart 2.3.x.x extension module
 ```
 $ gulp gmodule --modulename opencart_module_name
 ```
-### generate opencart 2.3.x.x extension payment module
+# generate opencart 2.3.x.x extension payment module
 ```
 $gulp gnewpayextension --modulename test_module_name
 ```
-### generate opencart 2.3.x.x new page "common/newpage"
+# generate opencart 2.3.x.x new page "common/newpage"
 ```
 $gulp gnewpage --newpagename new_page_name
 ```
