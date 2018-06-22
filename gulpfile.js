@@ -51,7 +51,12 @@ logFile = function(es) {
 // run gulp gmodule --modulename test_module_name
 gulp.task('gmodule', 'generate opencart 2.3.x.x module', function(modulename) {
     return gulp.src('templates/opencart_2_3/extension/module/**/*.*')
-            .pipe(plumber())
+            .pipe(plumber({
+              errorHandler: function(err) {
+              console.log(err);
+              this.emit('end');
+            }
+            }))
             .pipe(ext.replace('.php', '._php')) // должен ити  первым в потоке
             .pipe(replaceName(/modulename/g, modulename))
             .pipe(replaceName(/_/g, '\\'))
@@ -77,7 +82,12 @@ gulp.task('gmodule', 'generate opencart 2.3.x.x module', function(modulename) {
 gulp.task('gnewpayextension',
           'generate opencart 2.3.x.x payment module', function(modulename) {
     return gulp.src('templates/opencart_2_3/extension/payment/**/*.*')
-            .pipe(plumber())
+            .pipe(plumber({
+              errorHandler: function(err) {
+              console.log(err);
+              this.emit('end');
+            }
+            }))
             .pipe(ext.replace('.php', '._php')) // должен ити  первым в потоке
             .pipe(replaceName(/modulename/g, modulename))
             .pipe(replaceName(/_/g, '\\'))
@@ -106,7 +116,12 @@ gulp.task('gnewpage',
 'generate opencart 2.3.x.x new page "common/newpage"', function(newpagename) {
     console.log(newpagename);
     return gulp.src('templates/opencart_2_3/common/**/*.*')
-            .pipe(plumber())
+            .pipe(plumber({
+              errorHandler: function(err) {
+              console.log(err);
+              this.emit('end');
+            }
+            }))
             .pipe(ext.replace('.php', '._php')) // должен ити  первым в потоке
             .pipe(replaceName(/newpagename/g, newpagename))
             .pipe(replaceName(/_/g, '\\'))
@@ -135,20 +150,30 @@ browserSync({
 // Компиляция *.scss
 gulp.task('scss', function() {
     return gulp.src('dist/**/*.scss')
-.pipe(plumber())
-.pipe(sourcemaps.init())
-.pipe(sass()) // Скомпилируем
-.pipe(autoprefixer(['last 15 versions']))
-.pipe(cleanCSS().on('error', gutil.log))
-.pipe(sourcemaps.write())
-.pipe(rename({suffix: '.min'}))
-.pipe(gulp.dest('dist'))
-.pipe(browserSync.reload({stream: true}));
+        .pipe(plumber({
+          errorHandler: function(err) {
+          console.log(err);
+          this.emit('end');
+        }
+        }))
+        .pipe(sourcemaps.init())
+        .pipe(sass()) // Скомпилируем
+        .pipe(autoprefixer(['last 15 versions']))
+        .pipe(cleanCSS().on('error', gutil.log))
+        .pipe(sourcemaps.write())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('dist'))
+        .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('js', 'js compile', function() {
     gulp.src('dist/**/*.js') // Найдем наш main файл
-        .pipe(plumber())
+        .pipe(plumber({
+          errorHandler: function(err) {
+          console.log(err);
+          this.emit('end');
+        }
+        }))
         .pipe(sourcemaps.init()) // Инициализируем sourcemap
         .pipe(uglify()) // Сожмем наш js
         .pipe(sourcemaps.write()) // Пропишем карты
